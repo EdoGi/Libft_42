@@ -93,7 +93,6 @@ char    **ft_split(char const *s, char c)
     int i;
 
     count = ft_count(s, c);
-    printf(" count is %d\n", count);
     splited = (char **)malloc(sizeof(char *) * count + 1);
     if (splited == NULL)
         return (NULL);
@@ -104,9 +103,7 @@ char    **ft_split(char const *s, char c)
         len = 0;
         if (s[start] != c)
         {
-            len = ft_countlen(s, start, c);
-            printf(" len is %d\n", len);
-            printf(" start is %d so %c\n", start, s[start]);            
+            len = ft_countlen(s, start, c);    
             splited[i++] = ft_substr(s, start, len);
             start += len;
         }
