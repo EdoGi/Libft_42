@@ -21,20 +21,33 @@ int     ft_count(const char *s, char sep)
 
     count = 0;
     i = 0;
-    while (s[i])
+    while (s[i] != 0)
     {
         if (s[i] != sep)
         {
             count++;
             while (s[i] && s[i] != sep)
                 i++;
-            printf("count is %d and i is %d so '%c'   \n", count, i, s[i]);
         }
         i++;
     }
     return (count);
 }
 
+int     ft_countlen(const char *s, int i, char sep)
+{
+    int len;
+
+    len = 0;
+    while (s[i] && s[i] != sep)
+    {
+        i++;
+        len++;
+    }
+    return (len);
+}
+
+/*
 char    **ft_split(char const *s, char c)
 {
     char **splited;
@@ -67,5 +80,37 @@ char    **ft_split(char const *s, char c)
             start++;
         n++;
     }
+    return (splited);
+}
+*/
+
+char    **ft_split(char const *s, char c)
+{
+    char **splited;
+    int count;
+    int start;
+    int len;
+    int i;
+
+    count = ft_count(s, c);
+    printf(" count is %d\n", count);
+    splited = (char **)malloc(sizeof(char *) * count + 1);
+    if (splited == NULL)
+        return (NULL);
+    start = -1;
+    i = 0;
+    while (s[++start])
+    {
+        len = 0;
+        if (s[start] != c)
+        {
+            len = ft_countlen(s, start, c);
+            printf(" len is %d\n", len);
+            printf(" start is %d so %c\n", start, s[start]);            
+            splited[i++] = ft_substr(s, start, len);
+            start += len;
+        }
+    }
+    splited[i] = 0;
     return (splited);
 }
