@@ -12,17 +12,18 @@
 
 #include <stdlib.h>
 #include <string.h>
-
-void	*ft_calloc(size_t nmemb, size_t size)
+#include "libft.h"
+void	*ft_calloc(size_t count, size_t size)
 {
 	char	*ptr;
+	size_t	total;
 
-	if (nmemb == 0 || size == 0)
+	if (!count || !size)
 		return (malloc(0));
-	ptr = (char *)malloc(nmemb * size);
+	total = count * size;
+	ptr = malloc(total);
 	if (!ptr)
 		return (NULL);
-	while (nmemb--)
-		*ptr++ = 0;
+	ft_bzero(ptr, total);
 	return ((void *)ptr);
 }
