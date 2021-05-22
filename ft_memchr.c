@@ -12,17 +12,17 @@
 
 #include <string.h>
 
-void    *ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-    const char *srcoct;
-    size_t i;
+	const char	*srcoct;
+	size_t		i;
 
-    srcoct = (char *)s;
-    i = -1;
-    while (++i <= n)
-    {
-        if (srcoct[i] == (unsigned char)c)
-            return ((char *)&srcoct[i]);
-    }
-    return (NULL);
+	srcoct = (char *)s;
+	i = -1;
+	while (++i <= n)
+	{
+		if (srcoct[i] == (unsigned char)c)
+			return ((char *)&srcoct[i]);
+	}
+	return (NULL);
 }

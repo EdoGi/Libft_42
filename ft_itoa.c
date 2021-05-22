@@ -6,16 +6,16 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:15:21 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/05/21 15:03:24 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/05/22 15:13:30 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-char	*ft_intmin()
+char	*ft_intmin(void)
 {
-	char *num;
-	
+	char	*num;
+
 	num = (char *)malloc(sizeof(char) * 10);
 	if (!num)
 		return (NULL);
@@ -23,9 +23,9 @@ char	*ft_intmin()
 	return (num);
 }
 
-int		ft_intlen(int n)
+int	ft_intlen(int n)
 {
-	int size;
+	int	size;
 
 	size = 1;
 	if (n < 0)
@@ -43,9 +43,9 @@ int		ft_intlen(int n)
 
 char	*ft_itoalloc(int n)
 {
-	int	size;
-	int neg;
-	char *allocated;
+	int		size;
+	int		neg;
+	char	*allocated;
 
 	size = 1;
 	neg = 0;
@@ -68,10 +68,7 @@ char	*ft_itoa(int n)
 	int		i;
 
 	if (n == -2147483648)
-	{
-		numalpha = ft_intmin();
-		return (numalpha);
-	}
+		return (ft_intmin());
 	numalpha = ft_itoalloc(n);
 	intlen = ft_intlen(n);
 	i = 0;

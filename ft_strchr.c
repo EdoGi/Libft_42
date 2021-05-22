@@ -12,18 +12,18 @@
 
 #include <string.h>
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-    int i;
-    char *str;
+	int		i;
+	char	*str;
 
-    i = -1;
-    if (s == NULL)
-        return (NULL);
-    while (s[++i])
-    {
-        if (s[i] == c)
-            return (str = (char *)&s[i]);
-    }
-    return (NULL);
+	i = -1;
+	if (s == NULL)
+		return (NULL);
+	while (s[++i])
+	{
+		if (s[i] == c)
+			return (str = (char *)&s[i]);
+	}
+	return (NULL);
 }

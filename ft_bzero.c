@@ -12,11 +12,11 @@
 
 #include <string.h>
 
-void    ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-    char *octet;
+	char	*octet;
 
-    octet = s;
-    while (n--)
-        *octet++ = 0;
+	octet = s;
+	while (n--)
+		*octet++ = 0;
 }

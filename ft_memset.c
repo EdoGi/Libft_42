@@ -12,12 +12,12 @@
 
 #include <string.h>
 
-void *ft_memset (void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
-    char *octet;
+	char	*octet;
 
-    octet = s;
-    while (n--)
-        *octet++ = c;
-    return (s);
+	octet = s;
+	while (n--)
+		*octet++ = c;
+	return (s);
 }

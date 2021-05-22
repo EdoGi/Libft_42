@@ -13,15 +13,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-void    *ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-    char *ptr;
+	char	*ptr;
 
-    if (nmemb == 0 || size == 0)
-        return (malloc(0));
-    if(!(ptr = (char *)malloc(nmemb * size)))
-        return (NULL);
-    while (nmemb--)
-        *ptr++ = 0;
-    return ((void *)ptr);
+	if (nmemb == 0 || size == 0)
+		return (malloc(0));
+	ptr = (char *)malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	while (nmemb--)
+		*ptr++ = 0;
+	return ((void *)ptr);
 }

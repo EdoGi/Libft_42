@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include "libft.h"
+#include <ctype.h>
+
 int main()
 {
   int i;

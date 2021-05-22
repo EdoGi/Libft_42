@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-    if ((signed)c >= 0 && (signed)c < 128)
-        return (1);
-    return (0);
+	if ((signed)c >= 0 && (signed)c < 128)
+		return (1);
+	return (0);
 }

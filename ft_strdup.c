@@ -13,21 +13,22 @@
 #include <string.h>
 #include <stdlib.h>
 
-char *ft_strdup(const char *source)
+char	*ft_strdup(const char *source)
 {
-    char *dup;
-    int i;
-    int len;
+	char	*dup;
+	int		i;
+	int		len;
 
-    len = 0;
-    i = -1;
-    while (source[++i])
-        len++;
-    if (!(dup = (char *)malloc(len * sizeof(char))))
-        return (NULL);
-    i = -1;
-    while (source[++i])
-        dup[i] = source[i];
-    dup[i] = '\0';
-    return (dup);
+	len = 0;
+	i = -1;
+	while (source[++i])
+		len++;
+	dup = (char *)malloc(len * sizeof(char));
+	if (!dup)
+		return (NULL);
+	i = -1;
+	while (source[++i])
+		dup[i] = source[i];
+	dup[i] = '\0';
+	return (dup);
 }
