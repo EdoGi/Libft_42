@@ -44,7 +44,7 @@ HEADERS	=	./
 
 all	:		${NAME}
 
-${NAME} :	${OBJS}
+$(NAME) :	${OBJS}
 			ar rcs ${NAME} ${OBJS}
 
 clean :	
