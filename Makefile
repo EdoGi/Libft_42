@@ -34,8 +34,17 @@ SRCS	=	\
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c \
 			\
+
+BONUS	=	\
+			ft_lstnew.c \
+			ft_lstadd_front.c \
+			ft_lstsize.c \
+			ft_lstlast.c \
+			ft_lstadd_back.c \
+			\
 						
 OBJS 	= 	${SRCS:.c=.o}
+OBJS_B	= 	${BONUS:.c=.o}
 CC 		= 	gcc
 RM		= 	rm -rf
 NAME	= 	libft.a
@@ -44,7 +53,7 @@ CFLAGS	= 	-Wall -Wextra -Werror
 
 HEADERS	=	./
 
-.c.o : 	${SRCS}
+.c.o : 		${SRCS}
 			${CC} ${CFLAGS} -I ${HEADERS} -c $< -o $@
 
 all	:		${NAME}
@@ -52,8 +61,11 @@ all	:		${NAME}
 $(NAME) :	${OBJS}
 			ar rcs ${NAME} ${OBJS}
 
+bonus :		${OBJS_B}
+			ar rcs ${NAME} ${OBJS_B}
+
 clean :	
-			${RM} ${OBJS}
+			${RM} ${OBJS} ${OBJS_B}
 
 fclean :	clean 
 			${RM} ${NAME}
