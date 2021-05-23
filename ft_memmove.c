@@ -13,20 +13,28 @@
 #include <string.h>
 #include <stdlib.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	const char	*srcoct;
-	char		*dstoct;
-	char		*tmp;
+	unsigned char	*srcoct;
+	unsigned char	*dstoct;
 	size_t		i;
 
-	tmp = (char *)malloc(sizeof(char) * n);
-	i = n;
-	srcoct = (char *)src;
-	dstoct = (char *)dest;
-	while (i--)
-		tmp[i] = srcoct[i];
-	while (n--)
-		dstoct[n] = tmp[n];
-	return (dest);
+	if (!dst && !src)
+		return (0);
+	i = 0;
+	srcoct = (unsigned char *)src;
+	dstoct = (unsigned char *)dst;
+	if (srcoct > dstoct)
+		while (n--)
+		{
+			*(dstoct + i) = *(srcoct + i);
+			i++;
+		}
+	else
+		while (n)
+		{
+			*(dstoct + n - 1) = *(srcoct + n - 1);
+			n--;
+		}
+	return (dst);
 }

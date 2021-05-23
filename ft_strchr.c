@@ -18,12 +18,12 @@ char	*ft_strchr(const char *s, int c)
 	char	*str;
 
 	i = -1;
-	if (s == NULL)
-		return (NULL);
 	while (s[++i])
 	{
 		if (s[i] == c)
 			return (str = (char *)&s[i]);
 	}
+	if (s[i] == c)
+		return (str = (char *)&s[i]);
 	return (NULL);
 }
