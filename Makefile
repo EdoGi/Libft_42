@@ -41,6 +41,7 @@ BONUS	=	\
 			ft_lstsize.c \
 			ft_lstlast.c \
 			ft_lstadd_back.c \
+			ft_lstdelone \
 			\
 						
 OBJS 	= 	${SRCS:.c=.o}
