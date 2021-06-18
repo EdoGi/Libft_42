@@ -24,4 +24,8 @@ t_list *ft_lstnew(void *content)
 		newlist->next = NULL;
 	}
 	return(newlist);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 6b828e1dba56216c084cca9cb7640cfb947c3348
