@@ -17,14 +17,9 @@ void ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = -1;
-<<<<<<< HEAD
 	if (s)
 	{
 		while (s[++i])
 			ft_putchar_fd(s[i], fd);
 	}
-=======
-	while (s[++i])
-		ft_putchar_fd(s[i], fd);
->>>>>>> 6b828e1dba56216c084cca9cb7640cfb947c3348
 }
