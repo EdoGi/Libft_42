@@ -52,9 +52,10 @@ char	**ft_split(char const *s, char c)
 	char	**splited;
 	int		count;
 	int		start;
-	int		len;
 	int		i;
 
+	if (!s)
+		return (NULL);
 	count = ft_count(s, c);
 	splited = (char **)malloc(sizeof(char *) * count + 1);
 	if (splited == NULL)
@@ -63,12 +64,11 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (s[++start])
 	{
-		len = 0;
 		if (s[start] != c)
 		{
-			len = ft_countlen(s, start, c);
-			splited[i++] = ft_substr(s, start, len);
-			start += len;
+			count = ft_countlen(s, start, c);
+			splited[i++] = ft_substr(s, start, count);
+			start += count;
 		}
 	}
 	splited[i] = 0;

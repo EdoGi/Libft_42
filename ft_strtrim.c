@@ -31,10 +31,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		len;
 	char	*strim;
 
-	start = 0;
-	end = ft_strlen(s1);
 	if (!s1 || !set)
 		return (NULL);
+	start = 0;
+	end = ft_strlen(s1);
 	while (s1[start] && ft_isset(s1[start], set))
 		start++;
 	while (end > 0 && ft_isset(s1[end - 1], set))

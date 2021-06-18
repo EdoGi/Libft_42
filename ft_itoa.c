@@ -6,22 +6,12 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:15:21 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/05/22 15:13:30 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/06/18 20:11:38 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
-char	*ft_intmin(void)
-{
-	char	*num;
-
-	num = (char *)malloc(sizeof(char) * 10);
-	if (!num)
-		return (NULL);
-	num = "-2147483648";
-	return (num);
-}
+#include "libft.h"
 
 int	ft_intlen(int n)
 {
@@ -47,7 +37,6 @@ char	*ft_itoalloc(int n)
 	int		neg;
 	char	*allocated;
 
-	size = 1;
 	neg = 0;
 	if (n < 0)
 		neg = 1;
@@ -55,6 +44,7 @@ char	*ft_itoalloc(int n)
 	allocated = (char *)malloc(sizeof(char) * (size + 1));
 	if (!allocated)
 		return (NULL);
+	allocated[size] = '\0';
 	if (neg)
 		allocated[0] = '-';
 	return (allocated);
@@ -68,7 +58,7 @@ char	*ft_itoa(int n)
 	int		i;
 
 	if (n == -2147483648)
-		return (ft_intmin());
+		return (ft_strdup("-2147483648"));
 	numalpha = ft_itoalloc(n);
 	intlen = ft_intlen(n);
 	i = 0;
@@ -83,6 +73,5 @@ char	*ft_itoa(int n)
 		numalpha[intlen] = (n / j) % 10 + '0';
 		j *= 10;
 	}
-	numalpha[ft_intlen(n) + 1] = '\0';
 	return (numalpha);
 }

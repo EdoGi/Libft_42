@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 #include <stdlib.h>
 
 char	*ft_strdup(const char *source)
@@ -19,11 +19,8 @@ char	*ft_strdup(const char *source)
 	int		i;
 	int		len;
 
-	len = 0;
-	i = -1;
-	while (source[++i])
-		len++;
-	dup = (char *)malloc(len * sizeof(char));
+	len = ft_strlen(source);
+	dup = (char *)malloc(len + 1 * sizeof(char));
 	if (!dup)
 		return (NULL);
 	i = -1;

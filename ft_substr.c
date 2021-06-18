@@ -18,10 +18,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*news;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
+	if (start >= ft_strlen(s))
+		return (ft_calloc(1, sizeof(char)));
 	news = (char *)malloc(sizeof(char) * (len + 1));
 	if (!news)
-		return (NULL);
-	if (!s || start >= ft_strlen(s))
 		return (NULL);
 	i = -1;
 	while (++i < len && s[start])

@@ -21,6 +21,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		j;
 	int		totlen;
 
+	if (!s1 || !s2)
+		return (NULL);
 	totlen = ft_strlen(s1) + ft_strlen(s2);
 	joined = (char *)malloc(sizeof(char) * (totlen + 1));
 	if (!joined)
