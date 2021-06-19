@@ -13,13 +13,13 @@
 #include <stdlib.h>
 #include "libft.h"
 
-void ft_lstadd_back(t_list **alst, t_list *new)
+void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	t_list  *last;
-	
+	t_list	*last;
+
 	if (!*alst)
 		*alst = new;
-	else 
+	else
 	{
 		last = ft_lstlast(*alst);
 		last->next = new;

@@ -13,9 +13,9 @@
 #include "libft.h"
 #include <stdlib.h>
 
-t_list *ft_lstnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
-	t_list *newlist;
+	t_list	*newlist;
 
 	newlist = malloc(sizeof(t_list));
 	if (newlist)
@@ -23,5 +23,5 @@ t_list *ft_lstnew(void *content)
 		newlist->content = content;
 		newlist->next = NULL;
 	}
-	return(newlist);
+	return (newlist);
 }

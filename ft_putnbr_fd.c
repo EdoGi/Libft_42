@@ -13,10 +13,10 @@
 #include <unistd.h>
 #include "libft.h"
 
-int ft_nsize(int n)
+int	ft_nsize(int n)
 {
-	int i;
-	
+	int	i;
+
 	i = 1;
 	while (n >= 10)
 	{
@@ -26,9 +26,9 @@ int ft_nsize(int n)
 	return (i);
 }
 
-int ft_pwr(int times)
+int	ft_pwr(int times)
 {
-	int ret;
+	int	ret;
 
 	ret = 1;
 	while (times)
@@ -39,11 +39,11 @@ int ft_pwr(int times)
 	return (ret);
 }
 
-void ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	char	num;
 	int		nsize;
-	
+
 	if (n == -2147483648)
 		ft_putstr_fd("-2147483648", fd);
 	else
