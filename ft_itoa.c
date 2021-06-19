@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:15:21 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/06/18 20:11:38 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/06/19 18:09:56 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ char	*ft_itoa(int n)
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
 	numalpha = ft_itoalloc(n);
+	if (numalpha == NULL)
+		return (0);
 	intlen = ft_intlen(n);
 	i = 0;
 	if (n < 0)
