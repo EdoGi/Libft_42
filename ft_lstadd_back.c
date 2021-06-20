@@ -15,14 +15,11 @@
 
 void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	t_list	*last;
-
-	if (!*alst)
-		*alst = new;
-	else
+	if (alst)
 	{
-		last = ft_lstlast(*alst);
-		last->next = new;
-		new->next = NULL;
+		if (!*alst)
+			*alst = new;
+		else
+			ft_lstlast(*alst)->next = new;
 	}
 }

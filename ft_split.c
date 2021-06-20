@@ -12,7 +12,6 @@
 
 #include "libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 int	ft_count(const char *s, char sep)
 {
@@ -21,6 +20,8 @@ int	ft_count(const char *s, char sep)
 
 	count = 0;
 	i = 0;
+	if (sep == 0)
+		return (1);
 	while (s[i] != 0)
 	{
 		if (s[i] != sep)
@@ -62,7 +63,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	start = -1;
 	i = 0;
-	while (s[++start])
+	while (s[++start] && i < ft_count(s, c))
 	{
 		if (s[start] != c)
 		{

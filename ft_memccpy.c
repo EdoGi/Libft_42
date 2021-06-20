@@ -21,12 +21,12 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	dstoct = (unsigned char *)dest;
 	while (n--)
 	{
-		*dstoct++ = *srcoct++;
 		if (*srcoct == (unsigned char)c)
 		{
 			*dstoct++ = *srcoct++;
 			return (dstoct);
 		}
+		*dstoct++ = *srcoct++;
 	}
 	return (NULL);
 }
