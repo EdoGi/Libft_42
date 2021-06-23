@@ -12,30 +12,42 @@
 
 #include "libft.h"
 #include <stdlib.h>
+#include <stdio.h>
 
-int	ft_count(const char *s, char sep)
+static void	*ft_free_split(char **strs)
+{
+	int	i;
+
+	i = 0;
+	while (strs && strs[i])
+	{
+		free(strs[i]);
+		i++;
+	}
+	free(strs);
+	return (NULL);
+}
+
+static int	ft_count(const char *s, char sep)
 {
 	int	i;
 	int	count;
 
 	count = 0;
 	i = 0;
-	if (sep == 0)
-		return (1);
-	while (s[i] != 0)
+	while (s[i])
 	{
-		if (s[i] != sep)
-		{
+		while (s[i] && s[i] == sep)
+			i++;
+		if (s[i] && s[i] != sep)
 			count++;
-			while (s[i] && s[i] != sep)
-				i++;
-		}
-		i++;
+		while (s[i] && s[i] != sep)
+			i++;
 	}
 	return (count);
 }
 
-int	ft_countlen(const char *s, int i, char sep)
+static int	ft_countlen(const char *s, int i, char sep)
 {
 	int	len;
 
@@ -48,9 +60,19 @@ int	ft_countlen(const char *s, int i, char sep)
 	return (len);
 }
 
+char	*ft_splitcpy(const char *s, int start, char c)
+{
+	int		len;
+	char	*strs;
+
+	len = ft_countlen(s, start, c);
+	strs = ft_substr(s, start, len);
+	return (strs);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	char	**splited;
+	char	**splitted;
 	int		count;
 	int		start;
 	int		i;
@@ -58,20 +80,21 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	count = ft_count(s, c);
-	splited = (char **)malloc(sizeof(char *) * count + 1);
-	if (splited == NULL)
+	splitted = (char **)malloc(sizeof(char *) * (count + 1));
+	if (splitted == NULL)
 		return (NULL);
+	splitted[count] = 0;
 	start = -1;
 	i = 0;
-	while (s[++start] && i < ft_count(s, c))
+	while (i < count)
 	{
-		if (s[start] != c)
+		if (s[++start] && s[start] != c)
 		{
-			count = ft_countlen(s, start, c);
-			splited[i++] = ft_substr(s, start, count);
-			start += count;
+			splitted[i] = ft_splitcpy(s, start, c);
+			if (!splitted[i++])
+				return ((char **)ft_free_split(splitted));
+			start += ft_countlen(s, start, c);
 		}
 	}
-	splited[i] = 0;
-	return (splited);
+	return (splitted);
 }

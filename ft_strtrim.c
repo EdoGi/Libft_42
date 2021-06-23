@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-int	ft_isset(char c, const char *set)
+static int	ft_isset(char c, const char *set)
 {
 	int	i;
 

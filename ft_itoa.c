@@ -6,14 +6,14 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:15:21 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/06/19 18:09:56 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/06/23 16:16:15 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	ft_intlen(int n)
+static int	ft_intlen(int n)
 {
 	int	size;
 
@@ -31,7 +31,7 @@ int	ft_intlen(int n)
 	return (size);
 }
 
-char	*ft_itoalloc(int n)
+static char	*ft_itoalloc(int n)
 {
 	int		size;
 	int		neg;
