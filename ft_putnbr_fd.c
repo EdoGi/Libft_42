@@ -13,7 +13,7 @@
 #include <unistd.h>
 #include "libft.h"
 
-int	ft_nsize(int n)
+static int	ft_nsize(int n)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	ft_nsize(int n)
 	return (i);
 }
 
-int	ft_pwr(int times)
+static int	ft_pwr(int times)
 {
 	int	ret;
 

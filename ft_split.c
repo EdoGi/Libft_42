@@ -12,7 +12,6 @@
 
 #include "libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 static void	*ft_free_split(char **strs)
 {
@@ -60,7 +59,7 @@ static int	ft_countlen(const char *s, int i, char sep)
 	return (len);
 }
 
-char	*ft_splitcpy(const char *s, int start, char c)
+static char	*ft_splitcpy(const char *s, int start, char c)
 {
 	int		len;
 	char	*strs;
